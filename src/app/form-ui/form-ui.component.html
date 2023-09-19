@@ -1,0 +1,30 @@
+<div class="instructions">
+  <div class="logo-wrap">
+    <img src="assets/images/logo.jpg" alt="logo" class="logo">
+  </div>
+  <h3 class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-wrap">
+      <input type="text" formControlName="name" placeholder="Name" />
+
+      <input type="email" formControlName="email" placeholder="Email" />
+    </div>
+
+    <div class="input-wrap">
+      <select id="country" formControlName="country">
+        <option value="" disabled selected>Select Country</option>
+        <option
+          *ngFor="let country of countries"
+          [value]="country"
+          (selectionChange)="selectCoutry(country)"
+        >
+          {{ country }}
+        </option>
+      </select>
+
+      <input id="message" formControlName="phone" placeholder="Phone" />
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>
